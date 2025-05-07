@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Warframe Build Creator</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Warframe Build Creator</h1>
+            <nav>
+                <a href="#" onclick="showSection('home')">Home</a>
+                <a href="#" onclick="showSection('builds')">Builds</a>
+                <a href="#" onclick="showSection('popular')">Popular Builds</a>
+                <a href="#" onclick="showSection('saved')">Saved Builds</a>
+                <a href="#" onclick="showSection('Resource Guide')">Resource Guide</a>
+            </nav>
+        </header>
+        <main>
+            <section id="home" class="section active">
+                <div class="hero">
+                    <video autoplay muted loop playsinline class="hero-video">
+                        <source src="warframetrailer.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <div class="hero-content">
+                        <h2>Welcome, Tenno!</h2>
+                        <p>Master the Void with custom Warframe and weapon builds. Forge your path through the Origin System.</p>
+                        <button onclick="showSection('builds')">Begin Modding</button>
+                    </div>
+                </div>
+                <div class="mission-types">
+                    <h3>Suggested Builds by Mission Type</h3>
+                    <div class="mission-grid" id="missionBuilds"></div>
+                </div>
+            </section>
+            <section id="builds" class="section">
+                <!-- Section for building and managing mods -->
+                <h2>Modding Station</h2>
+                <div class="modding-interface">
+                    <div class="left-panel">
+                        <div class="capacity">CAPACITY: <span id="capacity">69/69</span></div>
+                        <div>
+                            <label for="itemType">Item Type</label>
+                            <select id="itemType" onchange="updateInterface()">
+                                <option value="warframe">Warframe</option>
+                                <option value="weapon">Weapon</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="itemSelect">Select Item</label>
+                            <select id="itemSelect" onchange="updateInterface()"></select>
+                        </div>
+                        <div class="squad-effects">
+                            <h3>Squad Effects</h3>
+                            <div id="squadEffects"></div>
+                        </div>
+                        <div id="baseStats" class="stats-display"></div>
+                        <div class="stat-summary">
+                            <h4>Stat Summary:</h4>
+                            <ul>
+                                <li><strong>Health:</strong> Increases survivability by boosting total hit points.</li>
+                                <li><strong>Shield:</strong> Adds a regenerating barrier to absorb damage.</li>
+                                <li><strong>Armor:</strong> Reduces damage taken by mitigating a percentage of incoming hits.</li>
+                                <li><strong>Energy:</strong> Determines the pool for casting abilities.</li>
+                                <li><strong>Sprint Speed:</strong> Affects movement speed when sprinting.</li>
+                                <li><strong>Duration:</strong> Extends the length of ability effects.</li>
+                                <li><strong>Efficiency:</strong> Reduces the energy cost of abilities.</li>
+                                <li><strong>Range:</strong> Increases the area of effect for abilities.</li>
+                                <li><strong>Strength:</strong> Boosts the power of ability effects.</li>
+                                <li><strong>Damage:</strong> (Weapons) Determines base damage per hit.</li>
+                                <li><strong>Fire Rate:</strong> (Weapons) Controls how fast the weapon shoots.</li>
+                                <li><strong>Crit Chance:</strong> (Weapons) Chance to deal a critical hit.</li>
+                                <li><strong>Crit Multiplier:</strong> (Weapons) Increases damage on critical hits.</li>
+                            </ul>
+                        </div>
+                        
+                    </div>
+                    <div class="center-panel">
+                        <h3>Aura Mod</h3>
+                        <div id="auraSlot" class="aura-slot"></div>
+                        <h3>Installed Mods</h3>
+                        <div id="modSlots" class="mod-grid"></div>
+                        <div id="itemDetails" class="item-details"></div>
+                        <div class="mod-controls">
+                            <input type="text" id="buildName" placeholder="Enter build name" class="build-name-input">
+                            <button onclick="saveBuild()">Save Build</button>
+                        </div>
+                    </div>
+                    <div class="right-panel">
+                        <h3>Available Mods</h3>
+                        <div class="mod-filter">
+                            <input type="text" id="modSearch" placeholder="Search Mods" oninput="filterMods()">
+                            <select id="modSort" onchange="sortMods()">
+                                <option value="drain">Sort by Drain</option>
+                                <option value="name">Sort by Name</option>
+                            </select>
+                        </div>
+                        <div id="availableMods"></div>
+                    </div>
+                </div>
+            </section>
+            <!-- Popular builds section -->
+            <section id="popular" class="section">
+                <h2>Popular Builds</h2>
+                <div id="popularBuilds"></div>
+            </section>
+            <!-- Saved builds section -->
+            <section id="saved" class="section">
+                <h2>Saved Builds</h2>
+                <div id="savedBuilds"></div>
+            </section>
+        </main>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>

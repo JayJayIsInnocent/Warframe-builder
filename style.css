@@ -1,0 +1,698 @@
+body {
+  margin: 0;
+  font-family: 'Exo 2', sans-serif;
+  background: linear-gradient(180deg, #0a0a0a 0%, #1c1c1c 100%);
+  color: #e0e0e0;
+  overflow-x: hidden;
+}
+
+.container {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background: rgba(10, 10, 10, 0.85);
+  border-bottom: 2px solid #00aaff;
+  box-shadow: 0 2px 10px rgba(0, 170, 255, 0.3);
+}
+
+header h1 {
+  margin: 0;
+  font-size: 26px;
+  color: #ff8c00;
+  text-shadow: 0 0 8px #00aaff;
+}
+
+nav a {
+  color: #00aaff;
+  text-decoration: none;
+  margin: 0 15px;
+  font-size: 16px;
+  padding: 5px 10px;
+  border: 1px solid transparent;
+  transition: all 0.3s;
+}
+
+nav a:hover {
+  border: 1px solid #00aaff;
+  background: rgba(0, 170, 255, 0.2);
+  text-shadow: 0 0 5px #00aaff;
+}
+
+.section {
+  display: none;
+  padding: 20px;
+  background: rgba(20, 20, 20, 0.9);
+  border-radius: 8px;
+  margin-top: 20px;
+  border: 1px solid #00aaff;
+  box-shadow: 0 0 15px rgba(0, 170, 255, 0.2);
+}
+
+.section.active {
+  display: block;
+}
+
+.section h2 {
+  color: #ff8c00;
+  text-shadow: 0 0 5px #00aaff;
+  margin-bottom: 15px;
+  font-size: 22px;
+}
+
+.hero {
+  position: relative;
+  text-align: center;
+  padding: 40px 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+
+.hero-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+  opacity: 0.5;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  color: #fff;
+  text-shadow: 0 0 10px #00aaff;
+}
+
+.hero-content h2 {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.hero-content p {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.mission-types {
+  padding: 20px;
+}
+
+.mission-types h3 {
+  color: #ff8c00;
+  text-shadow: 0 0 5px #00aaff;
+  margin-bottom: 15px;
+  font-size: 20px;
+}
+
+.mission-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.mission-card {
+  background: rgba(30, 30, 30, 0.85);
+  padding: 15px;
+  border-radius: 6px;
+  border: 1px solid #00aaff;
+  box-shadow: 0 0 10px rgba(0, 170, 255, 0.2);
+  transition: all 0.3s;
+  cursor: pointer;
+}
+
+.mission-card:hover {
+  box-shadow: 0 0 15px #ff8c00;
+}
+
+.mission-card h4 {
+  color: #ff8c00;
+  margin-bottom: 10px;
+}
+
+.mission-card p {
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.mission-card button {
+  padding: 6px 12px;
+  background: linear-gradient(145deg, #00aaff, #0077cc);
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.mission-card button:hover {
+  background: linear-gradient(145deg, #ff8c00, #cc6d00);
+  box-shadow: 0 0 10px #ff8c00;
+}
+
+.modding-interface {
+  display: grid;
+  grid-template-columns: 250px 1fr 350px;
+  gap: 20px;
+  padding: 20px;
+}
+
+.left-panel, .center-panel, .right-panel {
+  background: rgba(30, 30, 30, 0.85);
+  padding: 15px;
+  border-radius: 6px;
+  border: 1px solid #00aaff;
+  box-shadow: inset 0 0 10px rgba(0, 170, 255, 0.1);
+}
+
+.capacity {
+  font-size: 16px;
+  color: #00aaff;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.capacity #capacity {
+  color: #00ff00;
+  font-weight: bold;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  color: #00aaff;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+
+select {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  background: rgba(20, 20, 20, 0.9);
+  color: #e0e0e0;
+  border: 1px solid #00aaff;
+  border-radius: 4px;
+  font-family: 'Exo 2', sans-serif;
+  appearance: none;
+  background-image: url('data:image/svg+xml;utf8,<svg fill="%2300aaff" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 8px center;
+}
+
+select:focus {
+  outline: none;
+  box-shadow: 0 0 8px #00aaff;
+}
+
+.stats-display {
+  margin-top: 10px;
+  padding: 10px;
+  background: rgba(20, 20, 20, 0.7);
+  border: 1px solid #00aaff;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.stats-display span.modified {
+  color: #00ff00;
+  margin-left: 5px;
+}
+
+.stat-summary {
+  margin-top: 10px;
+  padding: 10px;
+  background: rgba(20, 20, 20, 0.7);
+  border: 1px solid #00aaff;
+  border-radius: 4px;
+  font-size: 14px;
+  color: #e0e0e0;
+}
+
+.stat-summary h4 {
+  color: #ff8c00;
+  margin-bottom: 5px;
+}
+
+.stat-summary ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.stat-summary li {
+  margin-bottom: 5px;
+}
+
+.squad-effects {
+  margin-top: 15px;
+  padding: 10px;
+  background: rgba(20, 20, 20, 0.7);
+  border: 1px solid #00aaff;
+  border-radius: 4px;
+}
+
+.squad-effects h3 {
+  color: #ff8c00;
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+.squad-effects div {
+  font-size: 14px;
+}
+
+.aura-slot {
+  background: rgba(50, 50, 50, 0.5);
+  border: 2px solid #ff8c00;
+  border-radius: 4px;
+  padding: 8px;
+  text-align: center;
+  transition: all 0.3s;
+  box-shadow: 0 0 5px rgba(255, 140, 0, 0.5);
+  margin-bottom: 15px;
+  min-height: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.aura-slot.empty {
+  background: rgba(30, 30, 30, 0.5);
+  color: #888;
+  cursor: pointer;
+}
+
+.aura-slot .mod-info {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.aura-slot .remove-btn {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  padding: 2px 6px;
+  background: #ff4444;
+  border: none;
+  border-radius: 50%;
+  color: #fff;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.aura-slot .remove-btn:hover {
+  background: #ff6666;
+  box-shadow: 0 0 5px #ff4444;
+}
+
+.mod-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.mod-grid .mod-slot {
+  position: relative;
+  background: rgba(50, 50, 50, 0.5);
+  border: 2px solid #ff8c00;
+  border-radius: 4px;
+  padding: 8px;
+  text-align: center;
+  transition: all 0.3s;
+  box-shadow: 0 0 5px rgba(255, 140, 0, 0.5);
+  min-height: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.mod-grid .mod-slot.empty {
+  background: rgba(30, 30, 30, 0.5);
+  color: #888;
+  cursor: pointer;
+}
+
+.mod-grid .mod-slot .mod-info {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.mod-grid .mod-slot .remove-btn {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  padding: 2px 6px;
+  background: #ff4444;
+  border: none;
+  border-radius: 50%;
+  color: #fff;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.mod-grid .mod-slot .remove-btn:hover {
+  background: #ff6666;
+  box-shadow: 0 0 5px #ff4444;
+}
+
+.item-details {
+  margin-top: 15px;
+  padding: 10px;
+  background: rgba(20, 20, 20, 0.7);
+  border: 1px solid #00aaff;
+  border-radius: 4px;
+  font-size: 14px;
+  color: #e0e0e0;
+}
+
+.item-details h4 {
+  color: #ff8c00;
+  margin-bottom: 5px;
+}
+
+.item-details ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.item-details li {
+  margin-bottom: 5px;
+}
+
+.item-details p {
+  margin-top: 10px;
+}
+
+.mod-controls {
+  margin-top: 15px;
+  display: flex;
+  gap: 10px;
+}
+
+.build-name-input {
+  flex: 1;
+  padding: 8px;
+  background: rgba(20, 20, 20, 0.9);
+  border: 1px solid #00aaff;
+  border-radius: 4px;
+  color: #e0e0e0;
+  font-family: 'Exo 2', sans-serif;
+}
+
+.build-name-input:focus {
+  outline: none;
+  box-shadow: 0 0 8px #00aaff;
+}
+
+button {
+  padding: 8px 15px;
+  background: linear-gradient(145deg, #00aaff, #0077cc);
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-family: 'Exo 2', sans-serif;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+button:hover {
+  background: linear-gradient(145deg, #ff8c00, #cc6d00);
+  box-shadow: 0 0 10px #ff8c00;
+}
+
+.right-panel h3 {
+  margin-bottom: 10px;
+}
+
+.mod-filter {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+#modSearch {
+  flex: 1;
+  padding: 8px;
+  background: rgba(20, 20, 20, 0.9);
+  border: 1px solid #00aaff;
+  border-radius: 4px;
+  color: #e0e0e0;
+}
+
+#modSort {
+  padding: 8px;
+  background: rgba(20, 20, 20, 0.9);
+  border: 1px solid #00aaff;
+  border-radius: 4px;
+  color: #e0e0e0;
+}
+
+#availableMods div {
+  background: rgba(50, 50, 50, 0.5);
+  border: 2px solid #ff8c00;
+  border-radius: 4px;
+  padding: 8px;
+  margin: 5px 0;
+  cursor: pointer;
+  transition: all 0.3s;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#availableMods div:hover {
+  box-shadow: 0 0 10px #ff8c00;
+}
+
+#availableMods div .rank {
+  color: #00ff00;
+}
+
+#popularBuilds div, #savedBuilds div {
+  background: rgba(30, 30, 30, 0.85);
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 4px;
+  border: 1px solid #00aaff;
+  display: block;
+  transition: all 0.3s;
+}
+
+#popularBuilds div:hover, #savedBuilds div:hover {
+  box-shadow: 0 0 10px #00aaff;
+}
+
+#popularBuilds button, #savedBuilds .load-btn {
+  padding: 6px 10px;
+  margin: 2px;
+  background: linear-gradient(145deg, #00aaff, #0077cc);
+}
+
+#savedBuilds .delete-btn {
+  padding: 6px 10px;
+  margin: 2px;
+  background: linear-gradient(145deg, #ff4444, #cc3333);
+}
+
+#savedBuilds .vote-buttons {
+  display: flex;
+  gap: 5px;
+  margin-top: 5px;
+}
+
+#savedBuilds .upvote-btn {
+  background: linear-gradient(145deg, #00cc00, #009900);
+}
+
+#savedBuilds .downvote-btn {
+  background: linear-gradient(145deg, #ff4444, #cc3333);
+}
+
+#savedBuilds .vote-count {
+  margin: 0 5px;
+  color: #00ff00;
+  font-weight: bold;
+}
+
+#savedBuilds .comment-section {
+  margin-top: 10px;
+}
+
+#savedBuilds .comment-input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  background: rgba(20, 20, 20, 0.9);
+  border: 1px solid #00aaff;
+  border-radius: 4px;
+  color: #e0e0e0;
+  font-family: 'Exo 2', sans-serif;
+}
+
+#savedBuilds .comment-input:focus {
+  outline: none;
+  box-shadow: 0 0 8px #00aaff;
+}
+
+#savedBuilds .comments-list {
+  max-height: 150px;
+  overflow-y: auto;
+  padding: 5px;
+  background: rgba(20, 20, 20, 0.7);
+  border: 1px solid #00aaff;
+  border-radius: 4px;
+}
+
+#savedBuilds .comment {
+  padding: 5px;
+  border-bottom: 1px solid #444;
+  font-size: 14px;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .modding-interface {
+      grid-template-columns: 1fr;
+  }
+
+  .mod-grid {
+      grid-template-columns: repeat(2, 1fr);
+  }
+
+  .right-panel {
+      margin-top: 20px;
+  }
+
+  .mission-grid {
+      grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  header {
+      flex-direction: column;
+      gap: 10px;
+  }
+
+  nav a {
+      margin: 5px;
+  }
+
+  .container {
+      padding: 10px;
+  }
+
+  .mod-grid {
+      grid-template-columns: 1fr;
+  }
+
+  .hero {
+      padding: 20px 10px;
+  }
+
+  .hero-content h2 {
+      font-size: 24px;
+  }
+
+  .hero-content p {
+      font-size: 16px;
+  }
+}
+.mod-slot button, .aura-slot button {
+  margin: 2px;
+  padding: 2px 5px;
+  font-size: 12px;
+}
+.rank-up-btn {
+  background-color: #4CAF50;
+  color: white;
+}
+.rank-down-btn {
+  background-color: #f44336;
+  color: white;
+}
+.mod-info {
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  margin: 2px;
+  cursor: move;
+}
+
+.mod-type-warframe {
+  background-color: #0e7a27; /* Light green for warframe mods */
+}
+
+.mod-type-weapon {
+  background-color: #1a6370; /* Light blue for weapon mods */
+}
+
+.mod-type-aura {
+  background-color: #d4b242; /* Light yellow for aura mods */
+}
+
+.mod-slot, .aura-slot {
+  border: 2px dashed #666;
+  min-height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.mod-slot.empty, .aura-slot.empty {
+  background-color: #201d1d;
+  
+}
+
+.mod-slot:hover, .aura-slot:hover {
+  background-color: #201d1d;
+}
+
+
+
+.resource-table { 
+  width: 80%; 
+  margin: 20px auto; 
+  border-collapse: collapse; 
+  font-family: 'Exo 2', sans-serif;
+}
+.resource-table th { 
+  background-color: #4a90e2; 
+  color: white; 
+  border: 1px solid #ccc; 
+  padding: 10px; 
+  text-align: left; 
+}
+.resource-table td { 
+  border: 1px solid #ccc; 
+  padding: 10px; 
+  text-align: left; 
+}
+.resource-table tr:nth-child(even) { 
+  background-color: #201d1d; 
+}
+.resource-table tr:nth-child(odd) { 
+  background-color: #201d1d; 
+}
+.note { 
+  font-style: italic; 
+  color: #666; 
+  margin-top: 10px; 
+  text-align: center;
+  font-family: 'Exo 2', sans-serif;
+}
